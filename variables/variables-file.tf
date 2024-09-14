@@ -23,7 +23,7 @@ variable "tags" {
 
 variable "sg_name" {
   type = string
-  default = "allow-myssh"
+  default = "allow-myssh1"
 }
 
 variable "sg_description" {
