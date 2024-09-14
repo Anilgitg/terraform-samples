@@ -5,6 +5,6 @@ resource "aws_route53_record" "expense"{
  name = "${var.instance_names[count.index]}.${var.doamin_name}"
  type = "A"
  ttl = 1
- records = [ output.instances_info[count.index].private_ip ]
+ records = [ aws_instance.expense[count.index].private_ip ]
  allow_overwrite = true 
 }
