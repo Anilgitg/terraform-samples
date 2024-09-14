@@ -3,9 +3,12 @@ resource "aws_instance" "example" {
     ami = "ami-09c813fb71547fc4f"
     instance_type = "t3.micro"
     vpc_security_group_ids = [ aws_security_group.allow-myssh.id ]
-    tags = {
-        Name = var.instance_names[count.index]
-    }
+    tags = merge(
+        var.common_tags, 
+        {
+            Name = var.instance_names[count.index]
+        }
+    )
 }
 
 resource "aws_security_group" "allow-myssh" {
@@ -27,10 +30,12 @@ resource "aws_security_group" "allow-myssh" {
     ipv6_cidr_blocks = ["::/0"]
   }
 
-  tags = {
-    Name = "Allow-All-ssh"
-  }
-
+  tags = merge(
+    var.common_tags, 
+    {
+        Name = "Allow-All-ssh"
+    }
+  )
 }
 
 
