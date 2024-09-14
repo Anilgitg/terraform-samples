@@ -1,3 +1,10 @@
+# variables preference in terraform:
+# 1. command line -var="instance_type=t2.small"
+# 2. terraform.tfvars
+# 3. default variables
+# 4. export TF_VAR_instance_type=t3.small(to unset this variable ==>>> unset TF_VAR_Instance_type)
+# 5. prompt variables
+
 variable "ami-id" {
   type = string 
   default = "ami-09c813fb71547fc4f"
