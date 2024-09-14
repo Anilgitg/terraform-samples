@@ -20,10 +20,8 @@ resource "aws_security_group" "allow-myssh" {
     from_port = 22
     to_port = 22
     protocol = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
+    cidr_blocks = var.ingres_cidr
     ipv6_cidr_blocks = ["::/0"]
   }
-  tags = {
-    Name = "Alloww-Ssh"
-  }
+  tags = var.tags
 }
