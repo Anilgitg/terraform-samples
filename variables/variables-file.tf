@@ -6,39 +6,39 @@
 # 5. prompt variables
 
 variable "ami-id" {
-  type = string 
-  default = "ami-09c813fb71547fc4f"
+  type        = string
+  default     = "ami-09c813fb71547fc4f"
   description = "this is the AMI id for RHEL 9"
 }
 
 variable "instance_type" {
-  type = string
-  default = "t3.micro"
+  type        = string
+  default     = "t3.micro"
   description = "this is AWS instance type"
 }
 
 variable "tags" {
-  type = map
+  type = map(any)
   default = {
-    Name ="backend"
-    Project = "expense"
-    Component = "backend"
+    Name        = "backend"
+    Project     = "expense"
+    Component   = "backend"
     Environment = "DEV"
-    Terraform = "true"
+    Terraform   = "true"
   }
 }
 
 variable "sg_name" {
-  type = string
+  type    = string
   default = "allow-myssh1"
 }
 
 variable "sg_description" {
-  type = string
+  type    = string
   default = "allow port 22 for ssh to allow all"
 }
 
 variable "ingres_cidr" {
-  type = list(string)
-  default = [ "0.0.0.0/0" ]
+  type    = list(string)
+  default = ["0.0.0.0/0"]
 }

@@ -1,13 +1,13 @@
 variable "instance_names" {
-    type = list(string)
-    default = [ "mysql", "backend", "frontend" ]
+  type    = list(string)
+  default = ["mysql", "backend", "frontend"]
 }
 
 variable "common_tags" {
-  type = map
+  type = map(any)
   default = {
-    Project = "expense"
+    Project     = "expense"
     Environment = "dev"
-    Terraform = "true"
+    Terraform   = "true"
   }
 }
